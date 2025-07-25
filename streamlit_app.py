@@ -370,16 +370,24 @@ def display_eda_visualizations():
         st.markdown("**Explore performance factors by comparing specific feature with perfamance rate.**", unsafe_allow_html=True)
         performance_feature = st.selectbox(
             "Select feature to compare with performance feature:",
-            options=['EmpJobSatisfaction', 'EmpWorkLifeBalance', 'EmpEnvironmentSatisfaction']
+            options=['EmpJobSatisfaction', 'EmpWorkLifeBalance', 'EmpEnvironmentSatisfaction', 'EmpJobInvolvement', 'EmpRelationshipSatisfaction', 'EmpDepartment', 'EmpJobRole']
         )
         # Create bar plot for performance factors
         fig3 = px.bar(
             sample_data, x=performance_feature, color='Performance',
             color_discrete_map={'Outstanding': '#28a745', 'Excellent': '#a5a728', 'Good': '#dc3545'},
             title=f"Performance Factors based on {performance_feature}",
-            labels={'Performance': 'Performance Level'}
+            labels={'Performance': 'Performance Level' }
         )
         st.plotly_chart(fig3, use_container_width=True)
+
+        # Create horizontal bar chart for performance factors
+        st.markdown("**Horizontal Bar Chart of Performance Factors measured in percentages**", unsafe_allow_html=True)
+
+        fig3 = st.bar_chart(
+            sample_data.groupby(performance_feature)['Performance'].value_counts(normalize=True).unstack().fillna(0),
+            use_container_width=True, horizontal=True, stack=True
+        )
 
     with eda_tab4:
         # Performance Analysis
