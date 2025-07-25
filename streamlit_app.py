@@ -382,7 +382,7 @@ def display_eda_visualizations():
         st.plotly_chart(fig3, use_container_width=True)
 
         # Create horizontal bar chart for performance factors
-        st.markdown(f"### Performance Distribution by {performance_feature}", unsafe_allow_html=True)
+        st.markdown(f"### Performance fator analysis Distribution by {performance_feature}", unsafe_allow_html=True)
 
         fig3 = st.bar_chart(
             sample_data.groupby(performance_feature)['Performance'].value_counts(normalize=True).unstack().fillna(0),
