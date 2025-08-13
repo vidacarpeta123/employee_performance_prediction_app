@@ -33,12 +33,12 @@ This Streamlit web application predicts employee performance levels (Good, Excel
 # Usage:
 
 - Clone the repository and ensure employee_performance_model_.pkl is in the project directory.
-- Run app2.py using Streamlit:
+- Run streamlit_app.py using Streamlit:
 - Fill in employee details and click "Predict Performance" to view results.
 
 # Contact:
 
 - Developed by Daniel Ndamukunda
 - LinkedIn : https://www.linkedin.com/in/ndamukunda-daniel/
-- GitHub Repository : https://github.com/vidacarpeta123/employee_performance_predictions
+- GitHub Repository : https://github.com/vidacarpeta123/employee_performance_prediction_app
 
